@@ -1,0 +1,30 @@
+.simulacion{
+    .title{
+        padding: 15px;
+        color:#FFF;
+    }
+    .reactivos, .elementos{
+        color: #FFF;
+        flex-basis: 0;
+        flex-wrap: wrap;
+        margin: 10px;
+    }
+    .reactivo, .elemento{
+        user-select: none;
+        flex-basis: 0;
+        background: #5a5a5a;
+        display: grid;
+        font-size: 14px;
+        padding: 8px;
+        transition: .12s ease-in-out;
+        border: solid 2px #666;
+    
+        .info{
+            width: 100px;
+        }
+        &:hover{
+            transform: scale(1.1);
+            box-shadow: 0 0 0 2px red;
+        }
+    }
+}

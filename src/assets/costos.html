@@ -1,0 +1,19 @@
+<div class="comboBox">
+        <div class="options">
+            <div class="option selected">option 1</div>
+            <div class="option">option 2</div>
+            <div class="option">option 3</div>
+            <div class="option">option 4</div>
+            <div class="option">option 5</div>
+        </div>
+        <div class="open_CB" onclick="openCB_COSTO()"></div>
+    </div>
+    <script>
+        document.querySelector('.open_CB').addEventListener('click', ()=>{
+            let ops = document.querySelector('.open_CB')
+            if(ops.classList.contains('open'))
+                ops.classList.remove('open')
+            else
+                ops.classList.add('open')
+        })
+    </script>

@@ -1,0 +1,16 @@
+.navbar{
+    width: 100%;
+    height: 60px;
+    background: #000000;
+    display: grid;
+    grid-template-columns: auto auto auto 1fr;
+    -webkit-app-region: drag;
+    
+    .op{
+        display: grid;
+        place-items: center;
+        padding: 0 2em;
+        color: #FFF;
+        -webkit-app-region: no-drag;
+    }
+}

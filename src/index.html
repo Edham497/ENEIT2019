@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="op" id="simulacion">Simulacion</div>
+        <div class="op" id="costos">Costo</div>
+        <div class="op">Reactivos</div>
+    </div>
+    <div id="app"></div>
+    <script src="./js/utilities.js"></script>
+    <script>
+        const { ipcRenderer } = require('electron')
+        const {elementos, reactivos} = require('./js/reactivos.js')
+        const Grafica = require('./js/Graficas')
+        let chartContaminante, chartCatalizador, chartContaminante2, chartCatalizador2
+        let progress = 0;
+
+        ipcRenderer.send('show-simulacion')
+
+        document.querySelector('#simulacion').addEventListener('click', ()=>{
+            $id('app').innerHTML = ''
+            ipcRenderer.send('show-simulacion')
+        })
+        
+        ipcRenderer.on('data-simulacion', (evt, arg)=>{
+            $id('app').innerHTML = arg
+            
+            //Datos de la grafica
+            data = require('./js/Graph_data')
+
+            chartContaminante = new Grafica(document.getElementById('chartContaminante'), data.contaminantes)
+
+            chartCatalizador = new Grafica(document.getElementById('chartCatalizador'), data.catalizador)
+            
+            chartContaminante2 = new Grafica(document.getElementById('chartContaminante2'), data.reactivo1)
+
+            chartCatalizador2 = new Grafica(document.getElementById('chartCatalizador2'), data.reactivo2)
+
+            // $id('VAC').addEventListener('change', ()=>{
+            //     // refreshData($id('VAC').value)
+            //     chartContaminante.updateUI($id('VAC').value)
+            // })
+            // $id('Catalizador').addEventListener('change', ()=>{
+            //     // refreshData($id('VAC').value)
+            //     chartCatalizador.updateUI($id('Catalizador').value)
+            // })
+            setInterval(function(){
+                chartContaminante.updateUI(Math.random()*10)
+                chartCatalizador.updateUI(Math.random()*10)
+                chartContaminante2.updateUI(Math.random()*10)
+                chartCatalizador2.updateUI(Math.random()*10)
+             }, 1000);
+        })
+
+        //Manda la peticion para recibir la info de costos
+        document.querySelector('#costos').addEventListener('click', ()=>{
+            ipcRenderer.send('show-costos', 'peticion de costos')
+        })
+
+        ipcRenderer.on('data-costos', (evt, arg)=>{
+            $id('app').innerHTML = arg
+        })
+
+        /*
+
+        function updateBarGraph(chart, label, color, border, bw, data) {
+            let i=0;
+            chart.data.datasets.forEach(function(dataset) {
+				dataset.data = dataset.data.map(function() {
+					return data[i++];
+				});
+			});
+            chart.update();
+        }
+
+        function refreshData(value){
+            let{label, color, borderC, borderW} = require('./js/myChart')
+            alterData(value)
+            updateBarGraph(myChart, label, color, borderC, borderW, chartData)
+        }
+        */
+
+        /*
+        //Genera un valor aleatorio en funcion al parametro
+        function randomScalingFactor(factor){
+            return Math.floor(Math.random() * factor/2)
+        }
+
+        //asigna valores al arreglo de la grafica
+        function alterData(v){
+            chartData[0] = v
+            for(let i = 1; i < chartData.length; i++)
+                chartData[i] = randomScalingFactor(v)
+        }*/
+        
+        
+    </script>
+    
+</body>
+</html>
