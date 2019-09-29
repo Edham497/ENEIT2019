@@ -14,6 +14,7 @@
         <div class="op">Reactivos</div>
     </div>
     <div id="app"></div>
+
     <script src="./js/utilities.js"></script>
     <script>
         const { ipcRenderer } = require('electron')
@@ -21,17 +22,19 @@
         const Grafica = require('./js/Graficas')
         let chartContaminante, chartCatalizador, chartContaminante2, chartCatalizador2
         let progress = 0;
+        let app = $id('app')
 
         ipcRenderer.send('show-simulacion')
 
         document.querySelector('#simulacion').addEventListener('click', ()=>{
-            $id('app').innerHTML = ''
+            app.innerHTML = ''
             ipcRenderer.send('show-simulacion')
         })
         
         ipcRenderer.on('data-simulacion', (evt, arg)=>{
-            $id('app').innerHTML = arg
-            
+            app.innerHTML = arg
+            app.classList = 'flex row wp mx'
+
             //Datos de la grafica
             data = require('./js/Graph_data')
 
@@ -65,7 +68,8 @@
         })
 
         ipcRenderer.on('data-costos', (evt, arg)=>{
-            $id('app').innerHTML = arg
+            app.innerHTML = arg
+            app.classList = ""
         })
 
         /*

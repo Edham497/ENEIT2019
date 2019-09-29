@@ -12,5 +12,10 @@
         padding: 0 2em;
         color: #FFF;
         -webkit-app-region: no-drag;
+        transition: .12s ease-in-out;
+
+        &:hover{
+            background: #FFFFFF66;
+        }
     }
 }
