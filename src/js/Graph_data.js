@@ -1,10 +1,11 @@
 let _backgroundColor= [
-    'rgba(54, 162, 235, 0.2)',
-    'rgba(255, 99, 132, 0.2)',
-    'rgba(255, 206, 86, 0.2)',
-    'rgba(75, 192, 192, 0.2)',
-    'rgba(153, 102, 255, 0.2)',
-    'rgba(255, 159, 64, 0.2)'
+    'rgba(54, 162, 235, 0.6)',
+    'rgba(255, 99, 132, 0.6)',
+    'rgba(255, 206, 86, 0.6)',
+    'rgba(75, 192, 192, 0.6)',
+    'rgba(153, 102, 255, 0.6)',
+    'rgba(255, 159, 64, 0.6)'
+    // '#00bfa5dd'
 ]
 let _borderColor = [
     'rgba(54, 162, 235, 1)',
@@ -13,6 +14,7 @@ let _borderColor = [
     'rgba(75, 192, 192, 1)',
     'rgba(153, 102, 255, 1)',
     'rgba(255, 159, 64, 1)'
+    // '#00bfa5'
 ]
 let _options = {
     scales: {
@@ -27,7 +29,7 @@ let _options = {
 let contaminantes = {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Blue', 'Red', 'Yellow', 'Green', 'Purple', 'Orange', 'Gray'],
         datasets: [{
             label: '# of Votes',
             data: [1,1,1,1,1,1,1],
@@ -65,8 +67,7 @@ let reactivo1 = {
             borderColor: _borderColor,
             borderWidth: 1
         }]
-    },
-    options: _options
+    }
 }
 
 let reactivo2 = {
@@ -80,8 +81,7 @@ let reactivo2 = {
             borderColor: _borderColor,
             borderWidth: 1
         }]
-    },
-    options: _options
+    }
 }
 module.exports = {
     contaminantes,

@@ -13,9 +13,11 @@
         color: #FFF;
         -webkit-app-region: no-drag;
         transition: .12s ease-in-out;
+        border: solid transparent 2px;
 
         &:hover{
-            background: #FFFFFF66;
+            background: #00bfa566;
+            border-color: #00bfa5;
         }
     }
 }
