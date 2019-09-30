@@ -16,6 +16,7 @@
     <div id="app"></div>
 
     <script src="./js/utilities.js"></script>
+    <script src="./js/Calculador.js"></script>
     <script>
         const { ipcRenderer } = require('electron')
         const {elementos, reactivos} = require('./js/reactivos.js')
@@ -33,17 +34,22 @@
         
         ipcRenderer.on('data-simulacion', (evt, arg)=>{
             app.innerHTML = arg
-            app.classList = 'flex row wp mx'
+            app.classList = 'grid col-a-a'
 
+            $id('pmg').innerHTML = reactivos.C3H8NO5P.pm
+
+            $id('GG').addEventListener('keyup',()=>{
+                calcularMG()
+            })
+            $id('VAC').addEventListener('keyup',()=>{
+                calcularMG()
+            })
             //Datos de la grafica
             data = require('./js/Graph_data')
 
             chartContaminante = new Grafica(document.getElementById('chartContaminante'), data.contaminantes)
-
             chartCatalizador = new Grafica(document.getElementById('chartCatalizador'), data.catalizador)
-            
             chartContaminante2 = new Grafica(document.getElementById('chartContaminante2'), data.reactivo1)
-
             chartCatalizador2 = new Grafica(document.getElementById('chartCatalizador2'), data.reactivo2)
 
             // $id('VAC').addEventListener('change', ()=>{

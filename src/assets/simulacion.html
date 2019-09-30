@@ -4,31 +4,58 @@
     <div class="title">REACTIVOS</div>
     <div class="reactivos flex roW"></div>
 </div> -->
-<div class="f">
-    <label for="">
-        Volumen de Agua Contaminada (lts) 
-        <input type="number" id="VAC">
-    </label>
-    <canvas id="chartContaminante" width="100px" height="100px"></canvas>
+<div class="wsp1">
+    <div class="title">Datos para la simulacion</div>
+
+    <div class="seccion">
+        <div class="title">GLIFOSATO (C3H8NO5P) CONTAMINANTE DEL AGUA</div>
+        <div class="txtbox">
+            <div class="title">Gramos de Glifosato</div>
+            <input type="number" id="GG">
+        </div>
+        <div class="txtbox">
+            <div class="title">Volumen de Agua Contaminada</div>
+            <input type="number" id="VAC">
+        </div>
+        <div class="txtbox">
+            <div class="title">PM del Glifosato <span id="pmg"></span></div>
+        </div>
+        <div class="txtbox">
+            <div class="title">Moles de Glifosato</div>
+            <input type="number" id="MG" disabled class="result">
+        </div>
+    </div>
+
 </div>
-<div class="f">
-    <label for="">
-        CATALIZADOR oxalato de calcio (CaC2O4 )
-        <input type="number" id="Catalizador">
-    </label>
-    <canvas id="chartCatalizador" width="100px" height="100px"></canvas>
-</div>
-<div class="f">
-    <label for="">
-        Volumen de Agua Contaminada (lts) 
-        <input type="number" id="VAC2">
-    </label>
-    <canvas id="chartContaminante2" width="100px" height="100px"></canvas>
-</div>
-<div class="f">
-    <label for="">
-        CATALIZADOR oxalato de calcio (CaC2O4 )
-        <input type="number" id="Catalizador2">
-    </label>
-    <canvas id="chartCatalizador2" width="100px" height="100px"></canvas>
+
+
+<div class="wsp2 flex row wp se">
+    <div class="f">
+        <label for="">
+            Volumen de Agua Contaminada (lts) 
+            <input type="number" id="VACg">
+        </label>
+        <canvas id="chartContaminante" width="100px" height="100px"></canvas>
+    </div>
+    <div class="f">
+        <label for="">
+            CATALIZADOR oxalato de calcio (CaC2O4 )
+            <input type="number" id="Catalizador">
+        </label>
+        <canvas id="chartCatalizador" width="100px" height="100px"></canvas>
+    </div>
+    <div class="f">
+        <label for="">
+            Volumen de Agua Contaminada (lts) 
+            <input type="number" id="VAC2">
+        </label>
+        <canvas id="chartContaminante2" width="100px" height="100px"></canvas>
+    </div>
+    <div class="f">
+        <label for="">
+            CATALIZADOR oxalato de calcio (CaC2O4 )
+            <input type="number" id="Catalizador2">
+        </label>
+        <canvas id="chartCatalizador2" width="100px" height="100px"></canvas>
+    </div>
 </div>

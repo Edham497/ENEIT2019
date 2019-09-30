@@ -55,13 +55,19 @@ canvas {
   margin: 10px;
   -webkit-box-shadow: 0 1px 2px #000;
           box-shadow: 0 1px 2px #000;
-  -webkit-transition: .12s ease-in-out;
-  transition: .12s ease-in-out;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
 }
 
 .f:hover {
   -webkit-box-shadow: 0 1px 8px var(--teal);
           box-shadow: 0 1px 8px var(--teal);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 @media (max-width: 720px) {
@@ -176,6 +182,65 @@ canvas {
           box-shadow: 0 0 0 2px red;
 }
 
+.wsp1 {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  padding: 15px;
+}
+
+.wsp1 > .title {
+  font-size: 25px;
+  padding: 25px 0;
+}
+
+.wsp1 .seccion > .title {
+  -webkit-transition: .2s ease;
+  transition: .2s ease;
+  margin: 25px 0;
+  -webkit-box-shadow: 0px 4px 3px #11111130;
+          box-shadow: 0px 4px 3px #11111130;
+}
+
+.wsp1 .seccion .txtbox {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  margin: 10px 0;
+}
+
+.wsp1 .seccion .txtbox input {
+  padding: .25em;
+  border: none;
+  -webkit-box-shadow: 0px 1px #0a0a0a33;
+          box-shadow: 0px 1px #0a0a0a33;
+  outline: none;
+  -webkit-transition: .2s ease;
+  transition: .2s ease;
+}
+
+.wsp1 .seccion .txtbox input:focus {
+  -webkit-box-shadow: 0px 1px #00ccff;
+          box-shadow: 0px 1px #00ccff;
+}
+
+.wsp1 .seccion .txtbox .result {
+  margin: 10px 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.wsp1 .seccion:hover > .title {
+  -webkit-box-shadow: 0px 4px 3px #3aadad70;
+          box-shadow: 0px 4px 3px #3aadad70;
+}
+
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -223,6 +288,38 @@ canvas {
 .flex.row.wp {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+
+.flex.row.sa {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.flex.row.sw {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.flex.row.se {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+}
+
+.grid.col-a-a {
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+}
+
+.grid.col-a-1fr {
+  -ms-grid-columns: auto 1fr;
+      grid-template-columns: auto 1fr;
 }
 
 .navbar {

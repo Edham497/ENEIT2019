@@ -21,5 +21,24 @@
         &.wp{
             flex-wrap: wrap;
         }
+        &.sa{
+            justify-content: space-around;
+        }
+        &.sw{
+            justify-content: space-between;
+        }
+        &.se{
+            justify-content: space-evenly;
+        }
+    }
+}
+
+.grid{
+    display: grid;
+    &.col-a-a{
+        grid-template-columns: auto auto;
+    }
+    &.col-a-1fr{
+        grid-template-columns: auto 1fr;
     }
 }

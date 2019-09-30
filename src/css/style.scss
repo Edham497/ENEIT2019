@@ -50,12 +50,18 @@ canvas{
     margin: 10px;
     box-shadow: 0 1px 2px #000;
     // color: #232323;
-    transition: .12s ease-in-out;
+    transition: .2s ease-in-out;
     // background: #dadada;
 
     &:hover{
         box-shadow: 0 1px 8px var(--teal)
     }
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
 @media (max-width: 720px){
@@ -68,6 +74,7 @@ canvas{
 
 @import './components/comboBox';
 @import './components/elementos';
+@import './components/worksspace1';
 
 @import './layout/flex';
 @import './layout/navbar';
