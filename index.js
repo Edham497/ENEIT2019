@@ -27,13 +27,18 @@ app.on('ready', () => {
 
     //Lee el archivo html de simulacion y lo manda a la ventana
     ipcMain.on('show-simulacion', (evt, arg)=>{
-        data = fs.readFileSync('src/assets/simulacion.html')
+        data = fs.readFileSync('src/views/simulacion.html')
         evt.reply('data-simulacion', data)
     })
 
     //Lee el archivo de costos y lo envia
     ipcMain.on('show-costos', (evt, arg)=>{
-        data = fs.readFileSync('src/assets/costos.html')
+        data = fs.readFileSync('src/views/costos.html')
         evt.reply('data-costos', data)
+    })
+
+    ipcMain.on('show-about', (evt, arg)=>{
+        data = fs.readFileSync('src/views/about.html')
+        evt.reply('data-about', data)
     })
 })

@@ -10,7 +10,14 @@ function calcularMG(){
     MG = 0
 
     if(VAC != undefined && GG != undefined){
-        MG = (GG * VAC) / reactivos.C3H8NO5P.pm
+        MG = redondeo((GG * VAC) / reactivos.C3H8NO5P.pm, 6)
         $id('MG').value = MG
     }
+}
+
+function redondeo(numero, decimales)
+{
+    var flotante = parseFloat(numero);
+    var resultado = Math.round(flotante*Math.pow(10,decimales))/Math.pow(10,decimales);
+    return resultado;
 }

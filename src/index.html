@@ -12,6 +12,8 @@
         <div class="op" id="simulacion">Simulacion</div>
         <div class="op" id="costos">Costo</div>
         <div class="op">Reactivos</div>
+        <div class="op" id="about">Acerca de</div>
+        <div class="op">Acua Solutions</div>
     </div>
     <div id="app"></div>
 
@@ -30,6 +32,16 @@
         document.querySelector('#simulacion').addEventListener('click', ()=>{
             app.innerHTML = ''
             ipcRenderer.send('show-simulacion')
+        })
+
+        //Manda la peticion para recibir la info de costos
+        document.querySelector('#costos').addEventListener('click', ()=>{
+            ipcRenderer.send('show-costos')
+        })
+
+        //Manda la peticion para recibir la info de costos
+        document.querySelector('#about').addEventListener('click', ()=>{
+            ipcRenderer.send('show-about')
         })
         
         ipcRenderer.on('data-simulacion', (evt, arg)=>{
@@ -68,14 +80,36 @@
              }, 5000);
         })
 
-        //Manda la peticion para recibir la info de costos
-        document.querySelector('#costos').addEventListener('click', ()=>{
-            ipcRenderer.send('show-costos', 'peticion de costos')
-        })
-
         ipcRenderer.on('data-costos', (evt, arg)=>{
             app.innerHTML = arg
             app.classList = ""
+        })
+
+        ipcRenderer.on('data-about', (evt, arg)=>{
+            app.innerHTML = arg
+            app.classList = ""
+
+            let pos = 0
+            let parrafos = document.getElementsByClassName('p')
+            app.addEventListener('click', ()=>{
+                console.log(parrafos)
+                
+                if(pos == 0)
+                parrafos[parrafos.length-1].classList.remove('active')
+                
+                if(pos > 0){
+                    parrafos[pos-1].classList.remove('active')
+                    if(pos >= parrafos.length){
+                        pos= 0;
+                        parrafos[pos].classList.remove('active')
+                    }
+                }
+                parrafos[pos++].classList.add('active')
+            })
+            app.addEventListener('keydown', ()=>{
+                parrafos[pos-1].classList.remove('active')
+            })
+
         })
 
         /*

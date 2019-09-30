@@ -328,8 +328,8 @@ input[type=number]::-webkit-outer-spin-button {
   background: #000000;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto 1fr;
-      grid-template-columns: auto auto auto 1fr;
+  -ms-grid-columns: auto auto auto auto 1fr 60px;
+      grid-template-columns: auto auto auto auto 1fr 60px;
   -webkit-app-region: drag;
 }
 
@@ -348,6 +348,56 @@ input[type=number]::-webkit-outer-spin-button {
 .navbar .op:hover {
   background: #00bfa566;
   border-color: #00bfa5;
+}
+
+.about .seccion {
+  margin-bottom: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 18px;
+}
+
+.about .seccion.c-a-a {
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+}
+
+.about .seccion.c-1-2 {
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+}
+
+.about .seccion.c-2-1 {
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  gap: 18px;
+}
+
+.about .seccion .p {
+  background: #f1f1f1;
+  padding: 15px;
+  border-radius: 15px;
+  -webkit-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+  font-weight: 100;
+  font-size: 18px;
+}
+
+.about .seccion .p.active {
+  text-shadow: 1px 1px #6a6a6a;
+  background: var(--blue);
+  color: #f1f1f1;
+  font-size: 35px;
+}
+
+.about .seccion .p.active .title {
+  font-size: 40px;
+}
+
+.about .seccion .title {
+  font-size: 25px;
+  font-weight: 500;
 }
 
 @-webkit-keyframes fadeout {
