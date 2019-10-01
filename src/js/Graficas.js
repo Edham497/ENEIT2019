@@ -33,6 +33,11 @@ module.exports = class Grafica{
         return Math.floor(Math.random() * factor+factor)
     }
 
+    setData(data){
+        this.data = data
+        this.updateGraphData()
+    }
+
     //asigna valores al arreglo de la grafica
     alterData(v){
         this.data[0] = v

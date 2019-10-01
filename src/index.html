@@ -10,7 +10,7 @@
 <body>
     <div class="navbar">
         <div class="op" id="simulacion">Simulacion</div>
-        <div class="op" id="costos">Costo</div>
+        <div class="op" id="costos">Kits</div>
         <div class="op">Reactivos</div>
         <div class="op" id="about">Acerca de</div>
         <div class="op">Acua Solutions</div>
@@ -23,7 +23,7 @@
         const { ipcRenderer } = require('electron')
         const {elementos, reactivos} = require('./js/reactivos.js')
         const Grafica = require('./js/Graficas')
-        let chartContaminante, chartCatalizador, chartContaminante2, chartCatalizador2
+        let chartContaminante, chartReactivos, chartContaminante2, chartCatalizador2
         let progress = 0;
         let app = $id('app')
 
@@ -48,7 +48,7 @@
             app.innerHTML = arg
             app.classList = 'grid col-a-a'
 
-            $id('pmg').innerHTML = reactivos.C3H8NO5P.pm
+            $id('PMG').value = reactivos.C3H8NO5P.pm
 
             $id('GG').addEventListener('keyup',()=>{
                 calcularMG()
@@ -60,24 +60,24 @@
             data = require('./js/Graph_data')
 
             chartContaminante = new Grafica(document.getElementById('chartContaminante'), data.contaminantes)
-            chartCatalizador = new Grafica(document.getElementById('chartCatalizador'), data.catalizador)
+            chartReactivos = new Grafica(document.getElementById('chartReactivos'), data.catalizador)
             chartContaminante2 = new Grafica(document.getElementById('chartContaminante2'), data.reactivo1)
             chartCatalizador2 = new Grafica(document.getElementById('chartCatalizador2'), data.reactivo2)
 
-            // $id('VAC').addEventListener('change', ()=>{
+            // $id('VACg').addEventListener('change', ()=>{
             //     // refreshData($id('VAC').value)
-            //     chartContaminante.updateUI($id('VAC').value)
+            //     chartContaminante.updateUI($id('VACg').value)
             // })
             // $id('Catalizador').addEventListener('change', ()=>{
             //     // refreshData($id('VAC').value)
             //     chartCatalizador.updateUI($id('Catalizador').value)
             // })
             setInterval(function(){
-                chartContaminante.updateUI(Math.random()*10)
-                chartCatalizador.updateUI(Math.random()*10)
+                // chartContaminante.updateUI(Math.random()*10)
+                // chartCatalizador.updateUI(Math.random()*10)
                 chartContaminante2.updateUI(Math.random()*10)
                 chartCatalizador2.updateUI(Math.random()*10)
-             }, 5000);
+             }, 500);
         })
 
         ipcRenderer.on('data-costos', (evt, arg)=>{
@@ -106,6 +106,7 @@
                 }
                 parrafos[pos++].classList.add('active')
             })
+            
             app.addEventListener('keydown', ()=>{
                 parrafos[pos-1].classList.remove('active')
             })

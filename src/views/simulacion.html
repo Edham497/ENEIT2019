@@ -18,11 +18,24 @@
             <input type="number" id="VAC">
         </div>
         <div class="txtbox">
-            <div class="title">PM del Glifosato <span id="pmg"></span></div>
+            <div class="title">PM del Glifosato</div>
+            <input type="number" id="PMG" disabled class="result">
         </div>
         <div class="txtbox">
             <div class="title">Moles de Glifosato</div>
             <input type="number" id="MG" disabled class="result">
+        </div>
+        <div class="txtbox">
+            <div class="title">Moles de CaC2O4</div>
+            <input type="number" id="MOC" disabled class="result">
+        </div>
+        <div class="txtbox">
+            <div class="title">Costo del CaC2O4</div>
+            <input type="text" id="COCT" disabled class="result">
+        </div>
+        <div class="txtbox">
+            <div class="title">Costo del FeO2</div>
+            <input type="text" id="COFT" disabled class="result">
         </div>
     </div>
 
@@ -32,19 +45,20 @@
 <div class="wsp2 flex row wp se">
     <div class="f">
         <label for="">
-            Volumen de Agua Contaminada (lts) 
-            <input type="number" id="VACg">
+            Numero de Moles 
+            <!-- <input type="number" id="VACg"> -->
         </label>
         <canvas id="chartContaminante" width="100px" height="100px"></canvas>
     </div>
     <div class="f">
         <label for="">
-            CATALIZADOR oxalato de calcio (CaC2O4 )
-            <input type="number" id="Catalizador">
+            Costos de los Reactivos
+            <!-- <input type="number" id="Catalizador"> -->
         </label>
-        <canvas id="chartCatalizador" width="100px" height="100px"></canvas>
+        <canvas id="chartReactivos" width="100px" height="100px"></canvas>
     </div>
-    <div class="f">
+
+    <!-- <div class="f">
         <label for="">
             Volumen de Agua Contaminada (lts) 
             <input type="number" id="VAC2">
@@ -57,5 +71,6 @@
             <input type="number" id="Catalizador2">
         </label>
         <canvas id="chartCatalizador2" width="100px" height="100px"></canvas>
-    </div>
+    </div> -->
+
 </div>

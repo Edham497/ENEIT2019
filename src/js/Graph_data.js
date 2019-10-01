@@ -27,27 +27,27 @@ let _options = {
 }
 
 let contaminantes = {
-    type: 'bar',
+    type: 'radar',
     data: {
-        labels: ['Blue', 'Red', 'Yellow', 'Green', 'Purple', 'Orange', 'Gray'],
+        labels: ['C3H8NO5P', 'CaC2O4', 'FeO2', 'H2O2'],
         datasets: [{
-            label: '# of Votes',
-            data: [1,1,1,1,1,1,1],
+            label: '# de Moles',
+            data: [0,0,0,0],
             backgroundColor: _backgroundColor,
             borderColor: _borderColor,
             borderWidth: 1
         }]
-    },
-    options: _options
+    }
+    // options: _options
 }
 
 let catalizador = {
-    type: 'line',
+    type: 'pie',
     data: {
-        labels: ['1', '2', '3', '4', '5', '6', '7'],
+        labels: ['CaC2O4', 'FeO2', 'H2O2'],
         datasets: [{
-            label: 'numbers',
-            data: [1,1,1,1,1,1,1],
+            label: 'Costos de los Reactivos',
+            data: [0,0,0],
             backgroundColor: _backgroundColor,
             borderColor: _borderColor,
             borderWidth: 1
