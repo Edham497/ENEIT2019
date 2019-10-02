@@ -30,6 +30,7 @@ html, body {
   width: 100%;
   height: calc(100% - 60px);
   overflow-y: auto;
+  padding-top: 10px;
   padding: 25px;
 }
 
@@ -191,20 +192,20 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
+  padding-top: 0;
   padding: 15px;
 }
 
 .wsp1 > .title {
   font-size: 25px;
-  padding: 25px 0;
+  padding: 10px 0;
 }
 
 .wsp1 .seccion > .title {
   -webkit-transition: .2s ease;
   transition: .2s ease;
-  margin: 25px 0;
-  -webkit-box-shadow: 0px 4px 3px #11111130;
-          box-shadow: 0px 4px 3px #11111130;
+  margin: 15px 0;
+  margin-top: 5px;
 }
 
 .wsp1 .seccion .txtbox {
@@ -239,6 +240,31 @@ input[type=number]::-webkit-outer-spin-button {
 .wsp1 .seccion:hover > .title {
   -webkit-box-shadow: 0px 4px 3px #3aadad70;
           box-shadow: 0px 4px 3px #3aadad70;
+}
+
+.wsp1 .opciones {
+  -webkit-box-shadow: 3px 3px 1px 1px #0a0a0a20;
+          box-shadow: 3px 3px 1px 1px #0a0a0a20;
+  max-width: 500px;
+}
+
+.wsp1 .opciones .title {
+  font-size: 20px;
+  background: var(--blue);
+  padding: 15px;
+  color: #FFF;
+}
+
+.wsp1 .opciones .op {
+  padding: 15px;
+  background: #f1f1f1;
+  border-bottom: 1px solid #DADADA;
+  -webkit-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+.wsp1 .opciones .op:hover {
+  background: #b2d0ee;
 }
 
 .flex {

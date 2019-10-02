@@ -19,6 +19,7 @@
 
     <script src="./js/utilities.js"></script>
     <script src="./js/Calculador.js"></script>
+
     <script>
         const { ipcRenderer } = require('electron')
         const {elementos, reactivos} = require('./js/reactivos.js')
@@ -48,7 +49,7 @@
             app.innerHTML = arg
             app.classList = 'grid col-a-a'
 
-            $id('PMG').value = reactivos.C3H8NO5P.pm
+            // $id('PMG').value = reactivos.C3H8NO5P.pm
 
             $id('GG').addEventListener('keyup',()=>{
                 calcularMG()
@@ -61,8 +62,8 @@
 
             chartContaminante = new Grafica(document.getElementById('chartContaminante'), data.contaminantes)
             chartReactivos = new Grafica(document.getElementById('chartReactivos'), data.catalizador)
-            chartContaminante2 = new Grafica(document.getElementById('chartContaminante2'), data.reactivo1)
-            chartCatalizador2 = new Grafica(document.getElementById('chartCatalizador2'), data.reactivo2)
+            // chartContaminante2 = new Grafica(document.getElementById('chartContaminante2'), data.reactivo1)
+            // chartCatalizador2 = new Grafica(document.getElementById('chartCatalizador2'), data.reactivo2)
 
             // $id('VACg').addEventListener('change', ()=>{
             //     // refreshData($id('VAC').value)
@@ -72,17 +73,44 @@
             //     // refreshData($id('VAC').value)
             //     chartCatalizador.updateUI($id('Catalizador').value)
             // })
-            setInterval(function(){
-                // chartContaminante.updateUI(Math.random()*10)
-                // chartCatalizador.updateUI(Math.random()*10)
-                chartContaminante2.updateUI(Math.random()*10)
-                chartCatalizador2.updateUI(Math.random()*10)
-             }, 500);
+            // setInterval(function(){
+            //     // chartContaminante.updateUI(Math.random()*10)
+            //     // chartCatalizador.updateUI(Math.random()*10)
+            //     chartContaminante2.updateUI(Math.random()*10)
+            //     chartCatalizador2.updateUI(Math.random()*10)
+            //  }, 500);
         })
-
+        
         ipcRenderer.on('data-costos', (evt, arg)=>{
             app.innerHTML = arg
-            app.classList = ""
+            app.classList = 'grid col-a-a'
+            ipcRenderer.send('kitBasico')
+
+            $id('kitD').addEventListener('click', ()=>{
+                ipcRenderer.send('kitBasico')
+            })
+
+            ipcRenderer.on('get-kitBasico', (evt, arg) =>{
+                $('.wsp2').innerHTML = arg
+            })
+
+            $id('kitI').addEventListener('click', ()=>{
+                ipcRenderer.send('kitIndustrial')
+            })
+
+            ipcRenderer.on('get-kitIndustrial', (evt, arg) =>{
+                $('.wsp2').innerHTML = arg
+            })
+            
+            //Listeners
+            // document.querySelector('.open_CB').addEventListener('click', ()=>{
+            //     let ops = document.querySelector('.options')
+            //     if(ops.classList.contains('open'))
+            //         ops.classList.remove('open')
+            //     else
+            //         ops.classList.add('open')
+            // })
+
         })
 
         ipcRenderer.on('data-about', (evt, arg)=>{

@@ -27,7 +27,7 @@ let _options = {
 }
 
 let contaminantes = {
-    type: 'radar',
+    type: 'pie',
     data: {
         labels: ['C3H8NO5P', 'CaC2O4', 'FeO2', 'H2O2'],
         datasets: [{

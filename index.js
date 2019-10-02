@@ -41,4 +41,14 @@ app.on('ready', () => {
         data = fs.readFileSync('src/views/about.html')
         evt.reply('data-about', data)
     })
+
+    ipcMain.on('kitBasico', (evt, arg)=>{
+        data = fs.readFileSync('src/views/kit_Basico.html')
+        evt.reply('get-kitBasico', data)
+    })
+
+    ipcMain.on('kitIndustrial', (evt, arg)=>{
+        data = fs.readFileSync('src/views/kit_Industrial.html')
+        evt.reply('get-kitIndustrial', data)
+    })
 })

@@ -31,6 +31,7 @@ function calcularMG(){
     GOC = MOC * POC
     CGOC = .6
 
+    //costo del CaC2O4
     COCT = redondeo(GOC * CGOC, 3)
     costos.push(COCT)
     $id('COCT').value = `$${COCT}` 
@@ -40,6 +41,8 @@ function calcularMG(){
     moles.push(MPF)
     PMF = reactivos.FeO2.pm
     GOF = MPF * PMF
+
+    //Costo del FeO2
     COFT = redondeo(GOF * .4, 3)
     costos.push(COFT)
     $id('COFT').value = `$${COFT}`
@@ -48,8 +51,15 @@ function calcularMG(){
     MPH = MG
     moles.push(MPH)
     GPH = MPH * reactivos.H2O2.pm
-    COCT = redondeo(GPH * .11, 3)
-    costos.push(COCT)
+
+    //Costo de H2O2
+    COCT2 = redondeo(GPH * .11, 3)
+    costos.push(COCT2)
+    $id('COCT2').value = `$${COCT2}`
+
+
+    TOTAL = COCT + COFT + COCT2
+    $id('CR').value = `$${TOTAL}`
 
     //refresh de las graficas
     chartContaminante.setData(moles)
