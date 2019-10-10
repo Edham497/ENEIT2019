@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>Acua Solutions - Simulacion</title>
 </head>
 <body>
     <div class="navbar">
+        <div class="title">Acua Solutions</div>
         <div class="op" id="simulacion">Simulacion</div>
         <div class="op" id="costos">Kits</div>
-        <div class="op">Reactivos</div>
+        <div class="op" id="reactivos">Reactivos</div>
         <div class="op" id="about">Acerca de</div>
-        <div class="op">Acua Solutions</div>
     </div>
     <div id="app"></div>
 
@@ -43,6 +43,10 @@
         //Manda la peticion para recibir la info de costos
         document.querySelector('#about').addEventListener('click', ()=>{
             ipcRenderer.send('show-about')
+        })
+
+        document.querySelector('#reactivos').addEventListener('click', ()=>{
+            ipcRenderer.send('show-reactivos')
         })
         
         ipcRenderer.on('data-simulacion', (evt, arg)=>{
@@ -86,21 +90,38 @@
             app.classList = 'grid col-a-a'
             ipcRenderer.send('kitBasico')
 
-            $id('kitD').addEventListener('click', ()=>{
-                ipcRenderer.send('kitBasico')
+            let kitD = $id('kitD')
+            let kitI = $id('kitI')
+
+            kitD.addEventListener('click', ()=>{
+                if(kitD.classList.contains('selected')){
+                    kitD.classList.remove('selected')
+                }
+                else{
+                    kitD.classList.add('selected') 
+                    kitI.classList.remove('selected')
+                    ipcRenderer.send('kitBasico')
+                }
+            })
+            kitI.addEventListener('click', ()=>{
+                if(kitI.classList.contains('selected')){
+                    kitI.classList.remove('selected')
+                }
+                else{
+                    kitD.classList.remove('selected')
+                    kitI.classList.add('selected')
+                    ipcRenderer.send('kitIndustrial')
+                }
+                
             })
 
             ipcRenderer.on('get-kitBasico', (evt, arg) =>{
                 $('.wsp2').innerHTML = arg
             })
-
-            $id('kitI').addEventListener('click', ()=>{
-                ipcRenderer.send('kitIndustrial')
-            })
-
             ipcRenderer.on('get-kitIndustrial', (evt, arg) =>{
                 $('.wsp2').innerHTML = arg
             })
+
             
             //Listeners
             // document.querySelector('.open_CB').addEventListener('click', ()=>{
@@ -117,28 +138,35 @@
             app.innerHTML = arg
             app.classList = ""
 
-            let pos = 0
-            let parrafos = document.getElementsByClassName('p')
-            app.addEventListener('click', ()=>{
-                console.log(parrafos)
+            // let pos = 0
+            // let parrafos = document.getElementsByClassName('p')
+            // app.addEventListener('click', ()=>{
+            //     console.log(parrafos)
                 
-                if(pos == 0)
-                parrafos[parrafos.length-1].classList.remove('active')
+            //     if(pos == 0)
+            //     parrafos[parrafos.length-1].classList.remove('active')
                 
-                if(pos > 0){
-                    parrafos[pos-1].classList.remove('active')
-                    if(pos >= parrafos.length){
-                        pos= 0;
-                        parrafos[pos].classList.remove('active')
-                    }
-                }
-                parrafos[pos++].classList.add('active')
-            })
+            //     if(pos > 0){
+            //         parrafos[pos-1].classList.remove('active')
+            //         if(pos >= parrafos.length){
+            //             pos= 0;
+            //             parrafos[pos].classList.remove('active')
+            //         }
+            //     }
+            //     parrafos[pos++].classList.add('active')
+            // })
             
-            app.addEventListener('keydown', ()=>{
-                parrafos[pos-1].classList.remove('active')
-            })
+            // app.addEventListener('keydown', ()=>{
+            //     parrafos[pos-1].classList.remove('active')
+            // })
 
+        })
+
+        ipcRenderer.on('data-react', (evt, arg)=>{
+            app.innerHTML = arg
+            app.classList = ""
+            loadElementos(elementos)
+            loadreactivos(reactivos)
         })
 
         /*

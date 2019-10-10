@@ -14,7 +14,7 @@
             <input type="number" id="GG">
         </div>
         <div class="txtbox">
-            <div class="title">Volumen de Agua Contaminada</div>
+            <div class="title">Litros de Agua Contaminada</div>
             <input type="number" id="VAC">
         </div>
         <!-- <div class="txtbox">
@@ -50,20 +50,40 @@
 </div>
 
 
-<div class="wsp2 flex row wp se">
-    <div class="f">
-        <label for="">
-            Numero de Moles 
-            <!-- <input type="number" id="VACg"> -->
-        </label>
-        <canvas id="chartContaminante" width="100px" height="100px"></canvas>
+<div class="wsp2 flex col">
+    <div class="pesoR flex col sc">
+        <div class="title">Peso Reactvos</div>
+        <div class="reactivos flex col sc">
+            <div class="reactivo">
+                <div class="title">CaC204</div>
+                <div id="GOC">0 grs</div>
+            </div>
+            <div class="reactivo">
+                <div class="title">Fe02</div>
+                <div id="GOF">0 grs</div>
+            </div>
+            
+            <div class="reactivo">
+                <div class="title">H2O2</div>            
+                <div id="GPH">0 grs</div>
+            </div>
+        </div>
     </div>
-    <div class="f">
-        <label for="">
-            Costos de los Reactivos
-            <!-- <input type="number" id="Catalizador"> -->
-        </label>
-        <canvas id="chartReactivos" width="100px" height="100px"></canvas>
+    <div class="graficas flex row wp se">
+        <div class="f">
+            <label for="">
+                Numero de Moles 
+                <!-- <input type="number" id="VACg"> -->
+            </label>
+            <canvas id="chartContaminante" width="100px" height="100px"></canvas>
+        </div>
+        <div class="f">
+            <label for="">
+                Costos de los Reactivos
+                <!-- <input type="number" id="Catalizador"> -->
+            </label>
+            <canvas id="chartReactivos" width="100px" height="100px"></canvas>
+        </div>
     </div>
 
     <!-- <div class="f">

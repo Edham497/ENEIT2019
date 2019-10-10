@@ -26,11 +26,11 @@ inyectCSS = (element, styles) =>{
     })
 }
 
-loadElementos= ()=> {
-    Object.keys(elementos).forEach(e=>{
+loadElementos= (E)=> {
+    Object.keys(E).forEach(e=>{
         $('.elementos').appendChild(createElement('div', {
             className: 'elemento',
-            innerHTML: `${e}: ${elementos[e]}`
+            innerHTML: `${e} ${E[e]}`
         }))
     })
 }

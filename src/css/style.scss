@@ -26,7 +26,7 @@ html, body{
     height: calc(100% - 60px);
     overflow-y: auto;
     padding-top: 10px;
-    padding: 25px;
+    padding: 15px 25px;
     // grid-template-columns: 1fr 1fr 1fr 1fr;
     // gap: 10px;
 }
@@ -75,7 +75,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 @import './components/comboBox';
 @import './components/elementos';
-@import './components/worksspace1';
+@import './components/workspaces';
 
 @import './layout/flex';
 @import './layout/navbar';

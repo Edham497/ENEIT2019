@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.8.0"
+  },
+  "devDependencies": {
     "electron": "^6.0.10",
     "electron-reload": "^1.5.0"
   },
-  "devDependencies": {},
   "scripts": {
-    "start": "electron index.js"
+    "start": "electron index.js",
+    "build-EB": "electron-builder -w msi"
   },
   "keywords": [],
   "author": "",

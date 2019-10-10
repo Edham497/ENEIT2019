@@ -3,13 +3,22 @@
     height: 60px;
     background: #000000;
     display: grid;
-    grid-template-columns: auto auto auto auto 1fr 60px;
+    grid-template-columns: auto auto auto auto auto 1fr;
     -webkit-app-region: drag;
-    
+
+    .title{
+        font-size: 2vw;
+        color: white;
+        display: grid;
+        place-items: center;
+        padding: 0 2em;
+    }
+
     .op{
         display: grid;
         place-items: center;
         padding: 0 2em;
+        background: #FFFFFF20;
         color: #FFF;
         -webkit-app-region: no-drag;
         transition: .12s ease-in-out;

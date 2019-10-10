@@ -1,7 +1,7 @@
 .simulacion{
     .title{
+        font-size: 30px;
         padding: 15px;
-        color:#FFF;
     }
     .reactivos, .elementos{
         color: #FFF;
@@ -9,9 +9,13 @@
         flex-wrap: wrap;
         margin: 10px;
     }
+
+    .reactivo{
+        min-width: 250px;
+    }
+
     .reactivo, .elemento{
         user-select: none;
-        flex-basis: 0;
         background: #5a5a5a;
         display: grid;
         font-size: 14px;

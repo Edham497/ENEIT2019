@@ -31,7 +31,7 @@ html, body {
   height: calc(100% - 60px);
   overflow-y: auto;
   padding-top: 10px;
-  padding: 25px;
+  padding: 15px 25px;
 }
 
 label {
@@ -142,8 +142,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .simulacion .title {
+  font-size: 30px;
   padding: 15px;
-  color: #FFF;
 }
 
 .simulacion .reactivos, .simulacion .elementos {
@@ -155,13 +155,15 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 10px;
 }
 
+.simulacion .reactivo {
+  min-width: 250px;
+}
+
 .simulacion .reactivo, .simulacion .elemento {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -ms-flex-preferred-size: 0;
-      flex-basis: 0;
   background: #5a5a5a;
   display: -ms-grid;
   display: grid;
@@ -259,12 +261,89 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 15px;
   background: #f1f1f1;
   border-bottom: 1px solid #DADADA;
+  -webkit-transition: .125s ease-in-out;
+  transition: .125s ease-in-out;
+  position: relative;
+  -webkit-transition: .25s;
+  transition: .25s;
+  z-index: 1;
+}
+
+.wsp1 .opciones .op.selected {
+  background: cornflowerblue;
+  color: white;
+}
+
+.wsp1 .opciones .op::before {
+  z-index: -1;
+  content: "";
+  width: 0px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
   -webkit-transition: .25s ease-in-out;
   transition: .25s ease-in-out;
 }
 
 .wsp1 .opciones .op:hover {
-  background: #b2d0ee;
+  color: white;
+}
+
+.wsp1 .opciones .op:hover::before {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: cornflowerblue;
+}
+
+.wsp2 .pesoR {
+  width: 100%;
+}
+
+.wsp2 .pesoR > .title {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  border-bottom: solid #0a0a0a33 1px;
+  padding: 15px;
+}
+
+.wsp2 .pesoR .reactivos {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.wsp2 .pesoR .reactivos .reactivo {
+  margin: 10px;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  gap: 25px;
+  -ms-grid-columns: 250px auto;
+      grid-template-columns: 250px auto;
+}
+
+.wsp2 .pesoR .reactivos .reactivo .title {
+  text-align: end;
+  padding-left: 25px;
+}
+
+.kit_industrial .row, .kit_industrial .tabheader, .kit_basico .row, .kit_basico .tabheader {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 250px 20px 150px 250px 150px;
+      grid-template-columns: 250px 20px 150px 250px 150px;
+}
+
+.kit_industrial .row .item, .kit_industrial .row .title, .kit_industrial .tabheader .item, .kit_industrial .tabheader .title, .kit_basico .row .item, .kit_basico .row .title, .kit_basico .tabheader .item, .kit_basico .tabheader .title {
+  text-align: center;
+  border: solid gray 1px;
 }
 
 .flex {
@@ -357,9 +436,18 @@ input[type=number]::-webkit-outer-spin-button {
   background: #000000;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto auto 1fr 60px;
-      grid-template-columns: auto auto auto auto 1fr 60px;
+  -ms-grid-columns: auto auto auto auto auto 1fr;
+      grid-template-columns: auto auto auto auto auto 1fr;
   -webkit-app-region: drag;
+}
+
+.navbar .title {
+  font-size: 2vw;
+  color: white;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  padding: 0 2em;
 }
 
 .navbar .op {
@@ -367,6 +455,7 @@ input[type=number]::-webkit-outer-spin-button {
   display: grid;
   place-items: center;
   padding: 0 2em;
+  background: #FFFFFF20;
   color: #FFF;
   -webkit-app-region: no-drag;
   -webkit-transition: .12s ease-in-out;

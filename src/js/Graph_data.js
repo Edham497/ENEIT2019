@@ -53,7 +53,7 @@ let catalizador = {
             borderWidth: 1
         }]
     },
-    options: _options
+    // options: _options
 }
 
 let reactivo1 = {

@@ -28,9 +28,12 @@ function calcularMG(){
     moles.push(MOC)
     $id('MOC').value = MOC
     POC = reactivos.CaC2O4.pm
+    
+    //Peso de CaC2O4
     GOC = MOC * POC
+    $id('GOC').innerHTML = `${redondeo(GOC ,3)}\tgrs`
+    //costo del gramo de CaC2O4
     CGOC = .6
-
     //costo del CaC2O4
     COCT = redondeo(GOC * CGOC, 3)
     costos.push(COCT)
@@ -40,8 +43,9 @@ function calcularMG(){
     MPF = MG
     moles.push(MPF)
     PMF = reactivos.FeO2.pm
+    //Peso del FeO2
     GOF = MPF * PMF
-
+    $id('GOF').innerHTML = `${redondeo(GOF,3)}\tgrs`
     //Costo del FeO2
     COFT = redondeo(GOF * .4, 3)
     costos.push(COFT)
@@ -50,8 +54,9 @@ function calcularMG(){
     //Moles H2O2
     MPH = MG
     moles.push(MPH)
+    //Peso del H2O2
     GPH = MPH * reactivos.H2O2.pm
-
+    $id('GPH').innerHTML = `${redondeo(GPH,3)}\tgrs`
     //Costo de H2O2
     COCT2 = redondeo(GPH * .11, 3)
     costos.push(COCT2)

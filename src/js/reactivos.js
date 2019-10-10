@@ -30,12 +30,12 @@ class reactivo{
         e.appendChild(createElement('div',{
             className: 'info',
             id: 'pm',
-            innerHTML: this.pm
+            innerHTML: `PM ${this.pm}`
         }))
         e.appendChild(createElement('div',{
             className: 'info',
             id: 'costo',
-            innerHTML: this.costo
+            innerHTML: `Costo: ${this.costo}`
         }))
 
         return e
@@ -52,7 +52,7 @@ module.exports = {
         Na2C2O4:    new reactivo('Oxalato de Sodio',                    'Na2C2O4',  133.998,    157,    100),
         C2H8N2O4:   new reactivo('Oxalato de Amonio',                   'C2H8N2O4', 124.0952,   140,    1000),
         H2O2:       new reactivo('Peroxido de Hidrogeno 35%',           'H2O2',     34.0138,    550,    5000),
-        C3H8NO5P:   new reactivo('Glifosato (N-fosfonometil glicina)',  'Glifosato(C3H8NO5P)', 169.0722,   165,    1000)
+        C3H8NO5P:   new reactivo('Glifosato (N - fosfonometil glicina)',  'C3H8NO5P', 169.0722,   165,    1000)
     }
 }
 
